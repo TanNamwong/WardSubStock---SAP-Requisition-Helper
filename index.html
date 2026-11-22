@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>พัสดุวอร์ด · Stroke Unit</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f6f6;--sf:#fff;--tx:#12302f;--mu:#5d7776;--ln:#d8e3e2;--pr:#0f766e;--pt:#fff;--rd:#d92d20;--rb:#fdecea;--am:#b45309;--ab:#fef3c7;--gn:#15803d;--gb:#dcfce7;--hd:#0b4f4a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1b1b;--sf:#152827;--tx:#e6f2f1;--mu:#94b0ae;--ln:#26403f;--pr:#2dd4bf;--pt:#06201e;--rd:#ff6b5e;--rb:#3a1814;--am:#fbbf24;--ab:#33270a;--gn:#4ade80;--gb:#10301c;--hd:#061e1c}}
+:root[data-theme="dark"]{--bg:#0d1b1b;--sf:#152827;--tx:#e6f2f1;--mu:#94b0ae;--ln:#26403f;--pr:#2dd4bf;--pt:#06201e;--rd:#ff6b5e;--rb:#3a1814;--am:#fbbf24;--ab:#33270a;--gn:#4ade80;--gb:#10301c;--hd:#061e1c}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--tx);font:16px/1.5 "Noto Sans Thai",system-ui,sans-serif;display:flex;flex-direction:column}
+header{background:var(--hd);color:#fff;padding:10px 16px;flex:none}
+header small{opacity:.8;display:block;font-size:12px}
+header b{font-size:17px}
+main{flex:1;overflow-y:auto;padding:14px 14px 90px}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--sf);border-top:1px solid var(--ln);padding-bottom:env(safe-area-inset-bottom,0px);z-index:20}
+nav button{flex:1;border:0;background:none;color:var(--mu);padding:8px 0 6px;font:inherit;font-size:11px;position:relative;min-height:56px}
+nav button i{display:block;font-style:normal;font-size:22px;line-height:1.1}
+nav button.on{color:var(--pr);font-weight:700}
+nav .bd{position:absolute;top:4px;left:calc(50% + 6px);background:var(--rd);color:#fff;border-radius:9px;font-size:10px;min-width:18px;padding:0 4px;line-height:18px}
+h2{font-size:18px;margin:4px 0 10px}
+h3{font-size:15px;margin:16px 0 8px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:12px;margin-bottom:10px}
+.it{display:flex;gap:10px;align-items:center;border-left:6px solid var(--ln);cursor:pointer}
+.it.low{border-left-color:var(--rd);background:var(--rb)}
+.it.warn{border-left-color:var(--am)}
+.it .n{flex:1;min-width:0}.it .n b{display:block}.it .n span{font-size:13px;color:var(--mu)}
+.q{text-align:right;font-weight:700;font-size:20px;line-height:1.1}.q small{display:block;font-weight:400;font-size:12px;color:var(--mu)}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;margin:2px 4px 0 0;font-weight:500}
+.t-r{background:var(--rb);color:var(--rd);border:1px solid var(--rd)}.t-a{background:var(--ab);color:var(--am)}.t-g{background:var(--gb);color:var(--gn)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:6px}
+.chip{flex:none;border:1px solid var(--ln);background:var(--sf);color:var(--tx);border-radius:99px;padding:6px 14px;font:inherit;font-size:14px}
+.chip.on{background:var(--pr);color:var(--pt);border-color:var(--pr)}
+input,select{font:inherit;color:var(--tx);background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:10px 12px;width:100%}
+.btn{border:0;background:var(--pr);color:var(--pt);font:inherit;font-weight:700;border-radius:10px;padding:11px 14px;min-height:44px}
+.btn.s{background:var(--sf);color:var(--pr);border:1px solid var(--pr)}
+.btn.d{background:var(--rd);color:#fff}
+.btn.w{width:100%}.row{display:flex;gap:8px;align-items:center}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.grid .card{text-align:center;margin:0;padding:10px 4px}.grid b{font-size:26px;display:block;line-height:1.2}.grid span{font-size:12px;color:var(--mu)}
+.step{display:flex;margin:10px 0 2px}.step div{flex:1;text-align:center;font-size:11px;color:var(--mu);position:relative}
+.step div:before{content:"";display:block;width:14px;height:14px;border-radius:50%;background:var(--ln);margin:0 auto 4px;position:relative;z-index:1}
+.step div:after{content:"";position:absolute;top:6px;left:-50%;width:100%;height:3px;background:var(--ln)}
+.step div:first-child:after{display:none}
+.step .dn{color:var(--tx)}.step .dn:before,.step .dn:after{background:var(--pr)}
+.stp{display:flex;align-items:center;gap:6px}.stp button{width:40px;height:40px;border-radius:10px;border:1px solid var(--ln);background:var(--sf);color:var(--tx);font-size:20px}
+.stp input{width:64px;text-align:center}
+.sh{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:40;display:flex;align-items:flex-end}
+.sh>div{background:var(--bg);width:100%;max-height:88%;overflow-y:auto;border-radius:18px 18px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px))}
+#vid{width:100%;border-radius:12px;background:#000;aspect-ratio:4/3;object-fit:cover}
+#toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:9px 16px;border-radius:99px;z-index:60;font-size:14px;display:none;max-width:90%}
+.bar{height:8px;border-radius:4px;background:var(--ln);overflow:hidden}.bar i{display:block;height:100%;background:var(--pr)}
+.mu{color:var(--mu);font-size:13px}
+.tbl{overflow-x:auto}
+.sk{position:sticky;top:0;z-index:5;background:var(--bg);margin:-14px -14px 8px;padding:10px 14px;border-bottom:1px solid var(--ln)}
+#cl{border:1px solid var(--ln);border-radius:12px;overflow:hidden;background:var(--sf)}
+.rc{display:flex;align-items:center;gap:10px;padding:9px 12px;min-height:56px;border-bottom:1px solid var(--ln);cursor:pointer}
+.rc:last-child{border-bottom:0}.rc.r{background:var(--rb)}
+.rc .dot{width:12px;height:12px;border-radius:50%;flex:none}
+.dot.g{background:var(--gn)}.dot.y{background:#e5a50a}.dot.r{background:var(--rd)}
+.rc .nm{flex:1;min-width:0;line-height:1.35}.rc .nm b{display:block;font-weight:500}.rc .sub{font-size:12px;color:var(--mu);margin-top:1px}.rc .sub .tag{font-size:11px;padding:0 6px;margin:0 0 0 6px}
+.rc .qt{flex:none;text-align:right;line-height:1.15}.rc .qt b{display:block;font-size:20px}.rc .qt small{font-size:11px;color:var(--mu);white-space:nowrap}
+.qt.g b{color:var(--gn)}.qt.y b{color:var(--am)}.qt.r b{color:var(--rd)}
+.it.ok{border-left-color:var(--gn)}
+.qk{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.qk button{flex:1;min-width:64px;min-height:48px;border:1px solid var(--pr);background:var(--sf);color:var(--pr);font:inherit;font-weight:700;border-radius:10px}
+.stp button{width:52px;height:52px;font-size:24px}.stp input{width:84px;height:52px;font-size:20px;font-weight:700}
+.btn{min-height:52px}.chip{min-height:40px}nav button{min-height:64px}
+button:active{transform:scale(.97)}
+@media(min-width:768px){body{font-size:17px}main{padding:18px 28px 104px}main>*{max-width:1000px;margin-left:auto;margin-right:auto}#ls{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.cg{grid-template-columns:repeat(5,1fr)}.cat{min-height:100px;font-size:14px}.sh{align-items:center;justify-content:center}.sh>div{max-width:560px;border-radius:18px}}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0 6px}
+.cat{position:relative;border:1px solid var(--ln);background:var(--sf);color:var(--tx);border-radius:12px;padding:10px 4px 8px;font:inherit;font-size:12px;line-height:1.3;min-height:84px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.cat i{font-style:normal;font-size:28px;line-height:1}
+.cat.on{background:var(--pr);color:var(--pt);border-color:var(--pr);font-weight:700}
+.cat em{position:absolute;top:4px;right:4px;background:var(--rd);color:#fff;font-style:normal;font-size:11px;min-width:18px;line-height:18px;border-radius:9px}
+</style>
+</head>
+<body>
+<header><small>หอผู้ป่วยโรคหลอดเลือดสมอง (Stroke Unit)</small><b id="ttl">หน้าหลัก</b></header>
+<main id="m"></main>
+<nav id="nv"></nav>
+<div id="toast"></div>
+<script>
+const $=s=>document.querySelector(s);
+const D=n=>{const x=new Date();x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)};
+const days=e=>Math.round((new Date(e)-new Date(D(0)))/864e5);
+const fd=e=>e?new Date(e).toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'2-digit'}):'-';
+const CATS=['แบบพิมพ์','งานบ้าน','สำนักงาน','วิทยาศาสตร์','ห้องยาโรบอคค์','ห้องผลิตยา','ครุภัณฑ์ทางการแพทย์','ห้องเจาะเลือด','สารสนเทศ'];
+const NUM={'แบบพิมพ์':1,'งานบ้าน':2,'สำนักงาน':3,'วิทยาศาสตร์':4,'ห้องยาโรบอคค์':6,'ห้องผลิตยา':7,'ครุภัณฑ์ทางการแพทย์':8,'ห้องเจาะเลือด':9,'สารสนเทศ':10};
+const ICO={'แบบพิมพ์':'📄','งานบ้าน':'🧹','สำนักงาน':'🗂️','วิทยาศาสตร์':'🔬','ห้องยาโรบอคค์':'💊','ห้องผลิตยา':'⚗️','ครุภัณฑ์ทางการแพทย์':'🩺','ห้องเจาะเลือด':'🩸','สารสนเทศ':'🖨️'};
+const B=(l,e,q)=>({lot:l,exp:e,q});
+const seed0=()=>({
+items:[
+{id:1,code:'STK-001',name:'ผ้าก๊อซปลอดเชื้อ 4×4 นิ้ว',cat:'ทำแผล',unit:'ห่อ',min:30,max:100,b:[B('G2401',D(400),45)]},
+{id:2,code:'STK-002',name:'น้ำเกลือ NSS 0.9% 1000 ml',cat:'เวชภัณฑ์',unit:'ขวด',min:24,max:96,b:[B('N118',D(25),10),B('N205',D(200),18)]},
+{id:3,code:'STK-003',name:'แอลกอฮอล์ 70% 450 ml',cat:'เวชภัณฑ์',unit:'ขวด',min:10,max:30,b:[B('A77',D(300),6)]},
+{id:4,code:'STK-004',name:'ถุงมือยางไม่มีแป้ง ไซซ์ M',cat:'PPE',unit:'กล่อง',min:10,max:40,b:[B('-',null,22)]},
+{id:5,code:'STK-005',name:'หน้ากากอนามัย 3 ชั้น',cat:'PPE',unit:'กล่อง',min:10,max:40,b:[B('-',null,4)]},
+{id:6,code:'STK-006',name:'สายให้อาหารทางจมูก (NG) เบอร์ 16',cat:'สายและท่อ',unit:'เส้น',min:10,max:30,b:[B('T330',D(70),12)]},
+{id:7,code:'STK-007',name:'สายสวนปัสสาวะ Foley เบอร์ 16',cat:'สายและท่อ',unit:'เส้น',min:8,max:24,b:[B('F912',D(150),9)]},
+{id:8,code:'STK-008',name:'ชุดให้สารน้ำ (IV set)',cat:'สายและท่อ',unit:'ชุด',min:20,max:80,b:[B('V45',D(300),50)]},
+{id:9,code:'STK-009',name:'กระบอกฉีดยา 5 ml',cat:'เวชภัณฑ์',unit:'กระบอก',min:50,max:200,b:[B('S60',D(500),120)]},
+{id:10,code:'STK-010',name:'ผ้าอ้อมผู้ใหญ่ ไซซ์ M',cat:'ของใช้ผู้ป่วย',unit:'ชิ้น',min:40,max:150,b:[B('-',null,30)]},
+{id:11,code:'STK-011',name:'แผ่นรองซับ (Underpad)',cat:'ของใช้ผู้ป่วย',unit:'ชิ้น',min:50,max:200,b:[B('-',null,90)]},
+{id:12,code:'STK-012',name:'กระดาษ A4 80 แกรม',cat:'เครื่องเขียน',unit:'รีม',min:3,max:10,b:[B('-',null,5)]},
+{id:13,code:'STK-013',name:'ปากกาลูกลื่น สีน้ำเงิน',cat:'เครื่องเขียน',unit:'ด้าม',min:20,max:60,b:[B('-',null,8)]},
+{id:14,code:'STK-014',name:'พลาสเตอร์ Micropore 1 นิ้ว',cat:'ทำแผล',unit:'ม้วน',min:12,max:40,b:[B('M08',D(55),15)]},
+{id:15,code:'STK-015',name:'เบตาดีน 60 ml',cat:'เวชภัณฑ์',unit:'ขวด',min:6,max:20,b:[B('P21',D(20),3)]}],
+cart:{},
+tpl:[{n:'ชุดเบิกประจำสัปดาห์',l:{2:24,4:10,5:10,10:40}},{n:'ชุดทำแผล',l:{1:30,14:12,15:6,3:10}}],
+logs:[{t:D(-2),ty:'ตัดสต๊อก',id:4,q:3,by:'ธุรการ วอร์ด'},{t:D(-3),ty:'ตัดสต๊อก',id:10,q:25,by:'ธุรการ วอร์ด'},{t:D(-5),ty:'ตัดสต๊อก',id:1,q:12,by:'ธุรการ วอร์ด'},{t:D(-6),ty:'ตัดสต๊อก',id:5,q:6,by:'ธุรการ วอร์ด'},{t:D(-8),ty:'ตัดสต๊อก',id:13,q:10,by:'ธุรการ วอร์ด'}],
+user:'ธุรการ วอร์ด',warn:3});
+const seed=()=>{const s=seed0(),K='ครุภัณฑ์ทางการแพทย์',R='ห้องยาโรบอคค์',H='งานบ้าน',O='สำนักงาน',M={1:K,2:R,3:K,4:K,5:K,6:K,7:K,8:K,9:K,10:H,11:H,12:O,13:O,14:K,15:R},N=(id,code,name,cat,unit,min,max,b)=>({id,code,name,cat,unit,min,max,b});
+ s.items.forEach(i=>i.cat=M[i.id]);
+ s.items.push(N(16,'FRM-001','แบบบันทึกทางการพยาบาล','แบบพิมพ์','เล่ม',10,40,[B('-',null,25)]),N(17,'FRM-002','ใบสั่งแพทย์ (Doctor order)','แบบพิมพ์','เล่ม',10,40,[B('-',null,6)]),N(18,'HK-001','น้ำยาถูพื้น','งานบ้าน','แกลลอน',2,8,[B('-',null,3)]),N(19,'HK-002','ถุงขยะติดเชื้อ (สีแดง)','งานบ้าน','แพ็ค',10,40,[B('-',null,18)]),N(20,'SCI-001','ถ้วยเก็บปัสสาวะ','วิทยาศาสตร์','ใบ',50,200,[B('U14',D(400),140)]),N(21,'PH-001','ซองบรรจุยา','ห้องผลิตยา','ห่อ',5,20,[B('-',null,8)]),N(22,'LAB-001','หลอดเก็บเลือด EDTA (ฝาม่วง)','ห้องเจาะเลือด','กล่อง',5,20,[B('E52',D(80),3)]),N(23,'LAB-002','หลอดเก็บเลือด Clot (ฝาแดง)','ห้องเจาะเลือด','กล่อง',5,20,[B('C19',D(120),9)]),N(24,'IT-001','ผงหมึกเครื่องพิมพ์','สารสนเทศ','ตลับ',2,6,[B('-',null,1)]));
+ return s};
+const alN=()=>S.items.filter(i=>isLow(i)||exLv(i)).length;
+const sl=i=>{const s=stock(i);return s<i.min?2:s<=Math.ceil(i.min*1.25)?1:0};
+let S;try{S=JSON.parse(localStorage.getItem('wardstock2')||'null')}catch(e){}
+S=S||seed();
+if(!S.cats)S.cats=CATS.map(c=>({n:c,num:NUM[c],ico:ICO[c]}));
+if(!S.old)S.old=[];
+if(S.orders){delete S.orders;delete S.seq;S.logs=S.logs.filter(l=>l.ty!=='เบิก')}
+if(!S.imp3){S.imp3=1;
+ [12,13].forEach(id=>{const x=S.items.find(i=>i.id===id);if(x&&x.cat==='สำนักงาน'){S.items=S.items.filter(i=>i!==x);S.old.push(x);delete S.cart[id]}});
+ if(!S.cats.some(c=>c.n==='สำนักงาน'))S.cats.push({n:'สำนักงาน',num:3,ico:'🗂️'});
+ let nid=Math.max(0,...S.items.concat(S.old).map(i=>i.id))+1;
+ `10001760|กระดาษสีขาว A4|5|2|รีม
+10002916|กระดาษสีเขียว A4|2|1|รีม
+10002919|กระดาษสีฟ้า A4 ❓|2|1|รีม
+10002921|กระดาษสีชมพู A4 ❓|2|1|รีม
+10003328|กระดาษสี A5 ❓|2|1|รีม
+10000077|ลวดเสียบกระดาษ ❓|4|2|กล่อง
+10000080|ซองจดหมาย|30|10|ซอง
+10000020|กระดาษสีทอง ❓|1|0.5|รีม
+10000087|กรรไกร|2|1|อัน
+10000092|เทปกาวย่น|3|1|ม้วน
+10000093|เทปใส|3|1|ม้วน
+10000106|ปากกาไวท์บอร์ด สีน้ำเงิน|2|1|แท่ง
+10000109|ปากกาไวท์บอร์ด สีเขียว ❓|2|1|แท่ง
+10000107|ปากกาไวท์บอร์ด สีแดง|2|1|แท่ง
+10000108|ปากกาไวท์บอร์ด สีดำ|2|1|แท่ง
+10000102|ปากกามาร์กเกอร์ สีน้ำเงิน|2|1|แท่ง
+10000103|ปากกามาร์กเกอร์ สีแดง|2|1|แท่ง
+10002455|สติ๊กเกอร์ Lab|2|1|ม้วน
+10002747|สติ๊กเกอร์ยา ❓|2|1|รีม
+10003371|สติ๊กเกอร์ (ตรวจชื่อ) ❓|1|0.5|กล่อง
+10000033|สมุดปกแข็ง (Consult) ❓|5|2|เล่ม
+10000034|สมุดปกแข็ง A4 ❓|5|2|เล่ม
+10000032|สมุดเล่มใหญ่|2|1|เล่ม
+10000044|ที่เจาะกระดาษ|1|0|อัน
+10002996|กระดาษพลาสติก ❓|6|2|อัน
+10003025|ตาไก่|3|1|กล่อง
+10000083|ซองน้ำตาลขยายข้าง ❓|30|10|ซอง
+10000120|ยางลบหมึก ❓|4|1|ก้อน
+10000119|ยางลบดินสอ|4|1|ก้อน
+10000076|ลวดเย็บกระดาษ|4|1|กล่อง
+10003369|สติ๊กเกอร์สี ฟ้า ❓|2|1|ม้วน
+10003370|สติ๊กเกอร์สี ส้ม ❓|2|1|ม้วน
+10002670|สติ๊กเกอร์ใส A4|2|1|รีม
+10000081|ซอง ก.ม.ช. ❓|30|10|ซอง
+10000714|ดินสอ ❓|5|2|แท่ง
+10002306|ซองใสใส่เอกสาร ❓|20|10|แผ่น
+10000079|ไม้บรรทัด 12 นิ้ว|5|2|อัน
+10000074|ที่เย็บกระดาษ ❓|1|0|อัน`.split('\n').forEach(r=>{const[c,n,mx,mn,u]=r.split('|');if(!S.items.some(i=>i.code===c))S.items.push({id:nid++,code:c,name:n,cat:'สำนักงาน',unit:u,max:+mx,min:+mn,b:[B('-',null,0)]})})}
+function syncCats(){CATS.length=0;Object.keys(NUM).forEach(k=>delete NUM[k]);Object.keys(ICO).forEach(k=>delete ICO[k]);S.cats.forEach(c=>{CATS.push(c.n);NUM[c.n]=c.num;ICO[c.n]=c.ico})}
+const save=()=>{try{localStorage.setItem('wardstock2',JSON.stringify(S))}catch(e){}};
+const it=id=>S.items.find(x=>x.id==id)||S.old.find(x=>x.id==id);
+const stock=i=>i.b.reduce((a,b)=>a+b.q,0);
+const isLow=i=>stock(i)<i.min;
+const nearest=i=>{const l=i.b.filter(b=>b.exp&&b.q>0).sort((a,b)=>a.exp<b.exp?-1:1);return l[0]};
+const exLv=i=>{const b=nearest(i);if(!b)return 0;const d=days(b.exp);return d<=30?2:d<=S.warn*30?1:0};
+const toast=t=>{const e=$('#toast');e.textContent=t;e.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>e.style.display='none',2200)};
+const cartN=()=>Object.keys(S.cart).length;
+let T='home',CAT='ทั้งหมด',Q='',SUB='cart',MON='';
+const TABS=[['home','📦','หน้าหลัก'],['alert','🔔','แจ้งเตือน'],['scan','📷','สแกน'],['req','📝','รายการ'],['rep','📊','รายงาน'],['manage','⚙️','จัดการ']];
+function go(t){stopCam();T=t;if(t==='home')CAT='ทั้งหมด';render();$('#m').scrollTop=0;if(t==='scan')startCam()}
+function render(){syncCats();
+ $('#nv').innerHTML=TABS.map(([k,i,l])=>`<button class="${T===k?'on':''}" onclick="go('${k}')"><i>${i}</i>${l}${(k==='req'?cartN():k==='alert'?alN():0)?`<span class="bd">${k==='req'?cartN():alN()}</span>`:''}</button>`).join('');
+ $('#ttl').textContent=TABS.find(x=>x[0]===T)[2];
+ $('#m').innerHTML=({home:vHome,alert:vAlert,scan:vScan,req:vReq,rep:vRep,manage:vManage})[T]();save();
+}
+function row(i){const s=stock(i),e=nearest(i),lv=exLv(i);
+ return `<div class="card it ${sl(i)==2?'low':sl(i)==1||lv?'warn':'ok'}" onclick="openItem(${i.id})"><div style="font-size:24px">${ICO[i.cat]}</div><div class="n"><b>${i.name}</b><span>${i.code} · ${i.cat}</span><div>${sl(i)==2?`<span class="tag t-r">${stock(i)?'ต่ำกว่า Min — ต้องเบิก':'หมด — เบิกด่วน'}</span>`:sl(i)==1?'<span class="tag t-a">ใกล้หมด</span>':'<span class="tag t-g">เพียงพอ</span>'}${lv?`<span class="tag ${lv==2?'t-r':'t-a'}">หมดอายุ ${fd(e.exp)}</span>`:''}</div></div><div class="q" style="color:${['var(--gn)','var(--am)','var(--rd)'][sl(i)]}">${s}<small>${i.unit} (Min ${i.min})</small></div></div>`}
+function vAlert(){
+ const low=S.items.filter(isLow),ex=S.items.filter(i=>exLv(i)).sort((a,b)=>nearest(a).exp<nearest(b).exp?-1:1);
+ 
+ return `<div class="grid"><div class="card"><b>${S.items.length}</b><span>รายการทั้งหมด</span></div><div class="card" style="${low.length?'border-color:var(--rd)':''}"><b style="color:var(--rd)">${low.length}</b><span>ต่ำกว่า Min</span></div><div class="card"><b style="color:var(--am)">${ex.length}</b><span>ใกล้หมดอายุ</span></div></div>
+ ${low.length?`<div class="card" style="background:var(--rb);border-color:var(--rd)"><b style="color:var(--rd)">⚠ ของใกล้หมด ${low.length} รายการ</b>${low.map(i=>`<div class="row" style="justify-content:space-between;padding:4px 0" onclick="openItem(${i.id})"><span>${i.name}</span><b>${stock(i)}/${i.min}</b></div>`).join('')}<button class="btn d w" style="margin-top:8px" onclick="fillLow()">เพิ่มทุกรายการลงรายการเบิก (เติมถึง Max)</button></div>`:'<div class="card t-g">✓ สต๊อกทุกรายการอยู่ในเกณฑ์</div>'}
+ <h3>ใกล้หมดอายุ (แจ้งเตือนล่วงหน้า ${S.warn} เดือน)</h3>
+ ${ex.length?ex.map(i=>{const b=nearest(i);return `<div class="card it ${exLv(i)==2?'low':'warn'}" onclick="openItem(${i.id})"><div class="n"><b>${i.name}</b><span>Lot ${b.lot} · ${b.q} ${i.unit} · ${fd(b.exp)}</span></div><span class="tag ${exLv(i)==2?'t-r':'t-a'}">อีก ${days(b.exp)} วัน</span></div>`}).join(''):'<p class="mu">ไม่มีรายการใกล้หมดอายุ</p>'}
+ <div class="row" style="margin-top:12px"><span class="mu" style="flex:1">แจ้งเตือนหมดอายุล่วงหน้า</span><select style="width:130px" onchange="S.warn=+this.value;render()">${[1,2,3].map(n=>`<option value="${n}" ${S.warn==n?'selected':''}>${n} เดือน</option>`).join('')}</select></div>`}
+function vHome(){
+ if(CAT!=='ทั้งหมด'&&CATS.includes(CAT))return vCat();
+ CAT='ทั้งหมด';
+ return `${alN()?`<div class="card it low" onclick="go('alert')"><div class="n"><b>⚠ ต้องเบิก/ใกล้หมดอายุ ${alN()} รายการ</b><span>แตะเพื่อดูรายละเอียด</span></div></div>`:''}<input id="sq" placeholder="ค้นหาชื่อหรือรหัสพัสดุ" value="${Q}" oninput="Q=this.value;hb()" style="margin-bottom:10px"><div id="hb">${hbHtml()}</div>`}
+function hbHtml(){const q=Q.trim().toLowerCase();
+ if(q){const l=S.items.filter(i=>(i.name+i.code).toLowerCase().includes(q)).sort((a,b)=>sl(b)-sl(a));return l.map(row).join('')||'<p class="mu">ไม่พบพัสดุ ลองค้นหาด้วยคำอื่น</p>'}
+ return `<div class="cg">${CATS.map(c=>`<button class="cat" onclick="CAT='${c}';render();$('#m').scrollTop=0"><i>${ICO[c]}</i><span>${NUM[c]}.${c}</span>${(n=>n?`<em>${n}</em>`:'')(S.items.filter(i=>i.cat===c&&sl(i)==2).length)}</button>`).join('')}</div><div class="mu" style="margin:2px 0 4px">แตะหมวดเพื่อดูรายการ · เลขแดง = รายการที่ต้องเบิก</div>`}
+function hb(){$('#hb').innerHTML=hbHtml()}
+function rowC(i){const s=sl(i),c=['g','y','r'][s],e=nearest(i),lv=exLv(i);
+ const st=s==2?`<span class="tag t-r">${stock(i)?'ต่ำกว่า Min — ต้องเบิก':'หมด — เบิกด่วน'}</span>`:s==1?'<span class="tag t-a">ใกล้หมด</span>':'<span class="tag t-g">เพียงพอ</span>';
+ return `<div class="rc ${s==2?'r':''}" onclick="openItem(${i.id})"><span class="dot ${c}"></span><div class="nm"><b>${i.name}</b><div class="sub">${i.code} · ${i.cat} ${st}${lv?`<span class="tag ${lv==2?'t-r':'t-a'}">หมดอายุ ${fd(e.exp)}</span>`:''}</div></div><div class="qt ${c}"><b>${stock(i)}</b><small>${i.unit} (Min ${i.min})</small></div></div>`}
+function vCat(){const l=S.items.filter(i=>i.cat===CAT).sort((a,b)=>sl(b)-sl(a)||(a.code<b.code?-1:1)),n=l.filter(i=>sl(i)==2).length;
+ return `<div class="sk"><div class="row"><button class="chip" onclick="CAT='ทั้งหมด';render();$('#m').scrollTop=0">‹ กลับ</button><b style="flex:1;font-size:17px">${ICO[CAT]} ${NUM[CAT]}.${CAT}</b><span class="mu">${l.length} รายการ${n?' · <b style="color:var(--rd)">ต้องเบิก '+n+'</b>':''}</span></div><div class="mu" style="font-size:12px;margin-top:4px">🟢 เพียงพอ 🟡 ใกล้หมด 🔴 ต่ำกว่า Min/หมด</div></div><div id="cl">${l.map(rowC).join('')||'<p class="mu" style="padding:12px">ยังไม่มีรายการในหมวดนี้ เพิ่มได้ที่เมนู จัดการ</p>'}</div>`}
+function openItem(id,fromScan){
+ const i=it(id),bs=[...i.b].filter(b=>b.q>0).sort((a,b)=>(a.exp||'9')<(b.exp||'9')?-1:1);
+ sheet(`<h2>${ICO[i.cat]} ${i.name}</h2><p class="mu">${i.code} · ${i.cat} · Min ${i.min} / Max ${i.max} ${i.unit}</p>
+ <div class="card ${isLow(i)?'low':''}"><div class="row" style="justify-content:space-between"><b>คงเหลือ</b><b style="font-size:22px;color:${isLow(i)?'var(--rd)':'inherit'}">${stock(i)} ${i.unit}</b></div><div class="bar" style="margin-top:6px"><i style="width:${Math.min(100,stock(i)/i.max*100)}%;background:${isLow(i)?'var(--rd)':'var(--pr)'}"></i></div></div>
+ <h3>ล็อตที่ต้องหยิบก่อน (FEFO)</h3>${bs.map((b,k)=>`<div class="card row" style="justify-content:space-between;padding:8px 12px"><span>${k==0&&b.exp?'👉 ':''}Lot ${b.lot} · ${fd(b.exp)}</span><b>${b.q}</b></div>`).join('')||'<p class="mu">ไม่มีสต๊อก</p>'}
+ <h3>จำนวน</h3><div class="stp"><button onclick="sq(-1)">−</button><input id="aq" type="number" inputmode="numeric" value="1" min="1"><button onclick="sq(1)">+</button><span class="mu">${i.unit}</span></div><div class="qk">${[1,5,10,50].map(n=>`<button onclick="qa(${n})">+${n}</button>`).join('')}<button onclick="$('#aq').value=${Math.max(1,i.max-stock(i))};$('#aq').dataset.t=1">เติมถึง Max</button><button onclick="$('#aq').value=1;delete $('#aq').dataset.t">ล้าง</button></div>
+ <div class="row" style="margin-top:14px"><button class="btn w" onclick="cut(${id})">ตัดสต๊อก (ใช้แล้ว)</button><button class="btn s w" onclick="addC(${id})">+ รายการเบิก</button></div>
+ <button class="btn s w" style="margin-top:8px;border-color:var(--ln);color:var(--mu)" onclick="closeSh();${fromScan?'startCam()':''}">ปิด</button>`)}
+const qa=n=>{const e=$('#aq');e.value=e.dataset.t?(+e.value||0)+n:n;e.dataset.t=1};
+const sq=d=>{const e=$('#aq');e.value=Math.max(1,(+e.value||1)+d)};
+function cut(id){const i=it(id);let n=+$('#aq').value||0;if(n<1)return toast('ใส่จำนวนอย่างน้อย 1');if(n>stock(i))return toast(`สต๊อกมีแค่ ${stock(i)} ${i.unit}`);
+ const q=n;i.b.sort((a,b)=>(a.exp||'9')<(b.exp||'9')?-1:1);for(const b of i.b){const t=Math.min(b.q,n);b.q-=t;n-=t;if(!n)break}
+ S.logs.unshift({t:D(0),ty:'ตัดสต๊อก',id,q,by:S.user});closeSh();render();toast(`ตัดสต๊อก ${i.name} ${q} ${i.unit} แล้ว`+(isLow(i)?' — ต่ำกว่า Min!':''))}
+function addC(id){const n=+$('#aq').value||1;S.cart[id]=(S.cart[id]||0)+n;closeSh();render();toast('เพิ่มลงรายการเบิกแล้ว')}
+function fillLow(){S.items.filter(isLow).forEach(i=>S.cart[i.id]=Math.max(S.cart[i.id]||0,i.max-stock(i)));SUB='cart';go('req')}
+function sheet(h){closeSh();const d=document.createElement('div');d.className='sh';d.id='sh';d.innerHTML='<div>'+h+'</div>';d.onclick=e=>{if(e.target===d){closeSh();if(T==='scan')startCam()}};document.body.appendChild(d)}
+function closeSh(){const e=$('#sh');if(e)e.remove()}
+/* scan */
+let stream,timer,lastC='',lastT=0;
+function vScan(){return `<video id="vid" playsinline muted></video><p class="mu" id="smsg">กำลังเปิดกล้อง… เล็งไปที่บาร์โค้ดหรือ QR บนชั้นวาง</p>
+ <h3>พิมพ์หรือยิงรหัสด้วยเครื่องสแกน</h3><div class="row"><input id="mc" placeholder="เช่น STK-005" onkeydown="if(event.key==='Enter')hit($('#mc').value)"><button class="btn" onclick="hit($('#mc').value)">ค้นหา</button></div>
+ `}
+async function startCam(){try{if(!('BarcodeDetector'in window))throw 1;const v=$('#vid');if(!v)return;stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});v.srcObject=stream;await v.play();const d=new BarcodeDetector();timer=setInterval(async()=>{try{const r=await d.detect(v);if(r[0]&&(r[0].rawValue!==lastC||Date.now()-lastT>3000)){lastC=r[0].rawValue;lastT=Date.now();hit(r[0].rawValue)}}catch(e){}},400)}catch(e){const m=$('#smsg');if(m)m.textContent='เปิดกล้องสแกนไม่ได้ในหน้านี้ (ต้องอนุญาตกล้อง/เบราว์เซอร์รองรับ) — ใช้ช่องพิมพ์รหัสด้านล่างแทนได้'}}
+function stopCam(){clearInterval(timer);if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}}
+function hit(c){c=(c||'').trim().toUpperCase();const i=S.items.find(x=>x.code===c);if(!i)return toast('ไม่พบรหัส '+c+' ในระบบ');stopCam();openItem(i.id,true)}
+/* list */
+function vReq(){
+ const seg=`<div class="chips">${[['cart','รายการเบิก'],['tpl','เทมเพลต']].map(([k,l])=>`<button class="chip ${(SUB==='tpl'?'tpl':'cart')===k?'on':''}" onclick="SUB='${k}';render()">${l}</button>`).join('')}</div>`;
+ if(SUB==='tpl')return seg+(S.tpl.map((t,k)=>`<div class="card"><b>⭐ ${t.n}</b><div class="mu">${Object.entries(t.l).map(([id,q])=>`${it(id).name.split(' ')[0]} ×${q}`).join(', ')}</div><div class="row" style="margin-top:8px"><button class="btn w" onclick="useTpl(${k})">ใช้เทมเพลต</button><button class="chip" onclick="S.tpl.splice(${k},1);render()">ลบ</button></div></div>`).join('')||'<p class="mu">ยังไม่มีเทมเพลต บันทึกจากรายการเบิกได้</p>');
+ const ks=Object.keys(S.cart);
+ return seg+`<p class="mu">ใช้เป็นรายการช่วยจำสำหรับกรอกในระบบเบิกของโรงพยาบาล แอปนี้ไม่ได้ส่งใบเบิก</p>`+(ks.length?ks.map(id=>{const i=it(id);return `<div class="card"><b>${i.name}</b><div class="mu">คงเหลือ ${stock(i)} / Max ${i.max} ${i.unit}</div><div class="row" style="justify-content:space-between;margin-top:6px"><div class="stp"><button onclick="cq(${id},-1)">−</button><input type="number" inputmode="numeric" value="${S.cart[id]}" onchange="S.cart[${id}]=Math.max(1,+this.value||1);render()"><button onclick="cq(${id},1)">+</button><span class="mu">${i.unit}</span></div><button class="chip" onclick="cq(${id},10)">+10</button><button class="chip" onclick="delete S.cart[${id}];render()">ลบ</button></div></div>`}).join('')+`<div class="row" style="margin-top:6px"><button class="btn s w" onclick="listTxt()">คัดลอกรายการ</button><button class="btn w" onclick="recvList()">รับของเข้าสต๊อก</button></div><div class="row" style="margin-top:10px"><input id="tn" placeholder="ชื่อเทมเพลต"><button class="btn s" style="white-space:nowrap" onclick="saveTpl()">บันทึกเป็นเทมเพลต</button></div><button class="chip" style="margin-top:10px" onclick="S.cart={};render()">ล้างรายการ</button>`:'<div class="card mu">ยังไม่มีรายการ — สแกนพัสดุ เลือกจากหมวด หรือใช้เทมเพลต</div>')}
+const cq=(id,d)=>{S.cart[id]=Math.max(1,S.cart[id]+d);render()};
+function useTpl(k){Object.entries(S.tpl[k].l).forEach(([id,q])=>S.cart[id]=(S.cart[id]||0)+q);SUB='cart';render();toast('เพิ่มรายการจากเทมเพลตแล้ว')}
+function saveTpl(){const n=clean($('#tn').value);if(!n)return toast('ตั้งชื่อเทมเพลตก่อน');S.tpl.push({n,l:{...S.cart}});SUB='tpl';render();toast('บันทึกเทมเพลตแล้ว')}
+function listTxt(){const tx='รายการเบิกพัสดุ หอผู้ป่วยโรคหลอดเลือดสมอง\nวันที่ '+fd(D(0))+'\n\n'+Object.entries(S.cart).map(([id,q])=>{const i=it(id);return `- ${i.code} ${i.name}: ${q} ${i.unit}`}).join('\n');
+ sheet(`<h2>รายการเบิก</h2><p class="mu">คัดลอกไปกรอกในระบบเบิกของโรงพยาบาล หรือส่งต่อทาง LINE</p><textarea id="ox" rows="10" style="width:100%;font:inherit;background:var(--sf);color:var(--tx);border:1px solid var(--ln);border-radius:10px;padding:10px">${tx}</textarea><button class="btn w" style="margin-top:10px" onclick="try{navigator.clipboard.writeText($('#ox').value);toast('คัดลอกแล้ว')}catch(e){$('#ox').select();toast('เลือกข้อความแล้ว กดคัดลอกได้เลย')}">คัดลอกข้อความ</button>`)}
+function recvList(){sheet(`<h2>รับของเข้าสต๊อก</h2><p class="mu">ใส่จำนวนที่ได้รับจริง (ใส่ 0 = ยังไม่ได้รับ ยังคงอยู่ในรายการ) และวันหมดอายุของเวชภัณฑ์</p>${Object.entries(S.cart).map(([id,q])=>{const i=it(id),tr=i.track||i.b.some(b=>b.exp);return `<div class="card"><b>${i.name}</b><div class="row" style="margin-top:6px"><input class="rq" data-id="${id}" type="number" inputmode="numeric" value="${q}" min="0" style="max-width:100px"><span class="mu">${i.unit}</span>${tr?`<input type="date" class="rx" data-id="${id}" value="${D(365)}">`:''}</div></div>`}).join('')}<button class="btn w" onclick="doRecv()">บันทึกรับเข้าสต๊อก</button>`)}
+function doRecv(){const ds={};document.querySelectorAll('.rx').forEach(e=>ds[e.dataset.id]=e.value);let n=0;
+ document.querySelectorAll('.rq').forEach(e=>{const id=e.dataset.id,q=Math.max(0,+e.value||0);if(!q)return;const i=it(id),ex=ds[id]||null;
+  const f=!ex&&i.b.find(b=>!b.exp);if(f)f.q+=q;else i.b.push(B(ex?'R'+D(0).replace(/-/g,'').slice(2):'-',ex,q));
+  S.logs.unshift({t:D(0),ty:'รับเข้า',id:+id,q,by:S.user});delete S.cart[id];n++});
+ closeSh();render();toast(n?`รับเข้าสต๊อก ${n} รายการแล้ว`:'ยังไม่ได้ใส่จำนวนที่รับ')}
+
+/* report */
+function months(){const m=[...new Set(S.logs.map(l=>l.t.slice(0,7)).concat(D(0).slice(0,7)))].sort().reverse();return m}
+function vRep(){const ms=months();if(!MON)MON=ms[0];const L=S.logs.filter(l=>l.t.slice(0,7)===MON);
+ const use={};L.filter(l=>l.ty==='ตัดสต๊อก').forEach(l=>use[l.id]=(use[l.id]||0)+l.q);const top=Object.entries(use).sort((a,b)=>b[1]-a[1]),mx=top[0]?top[0][1]:1;
+ return `<div class="row"><select onchange="MON=this.value;render()">${ms.map(m=>`<option ${m===MON?'selected':''}>${m}</option>`).join('')}</select><button class="btn" style="white-space:nowrap" onclick="sumTxt()">สรุปส่งหัวหน้า</button></div>
+ <h3>ยอดใช้ประจำเดือน</h3>${top.map(([id,q])=>`<div style="margin-bottom:8px"><div class="row" style="justify-content:space-between"><span>${it(id).name}</span><b>${q} ${it(id).unit}</b></div><div class="bar"><i style="width:${q/mx*100}%"></i></div></div>`).join('')||'<p class="mu">เดือนนี้ยังไม่มีการตัดสต๊อก</p>'}
+ <h3>ประวัติตัดสต๊อกและรับเข้า</h3>${L.map(l=>`<div class="card row" style="justify-content:space-between;padding:8px 12px"><div><b>${it(l.id).name}</b><div class="mu">${fd(l.t)} · ${l.by}</div></div><div style="text-align:right"><span class="tag ${l.ty==='รับเข้า'?'t-g':l.ty==='เบิก'?'t-a':'t-r'}">${l.ty}</span><div><b>${l.q}</b> ${it(l.id).unit}</div></div></div>`).join('')||'<p class="mu">ไม่มีประวัติ</p>'}
+ <h3>ผู้ใช้งาน</h3><input value="${S.user}" onchange="S.user=this.value.trim()||'ธุรการ วอร์ด';save()">`}
+/* manage */
+let MC='ทั้งหมด',DEL=0;
+const EMO=['📄','🧹','🗂️','🔬','💊','⚗️','🩺','🩸','🖨️','🧴','🧤','🧻','🛏️','🧪','📦','🩹'];
+const clean=s=>(s||'').replace(/[\x27\x22<>&\x60$\\]/g,'').trim();
+function vManage(){const l=S.items.filter(i=>MC==='ทั้งหมด'||i.cat===MC);
+ return `<div class="row" style="justify-content:space-between"><h2 style="margin:0">หมวดหมู่ (${S.cats.length})</h2><button class="btn" onclick="editCat(-1)">+ เพิ่มหมวด</button></div>
+ <div style="margin-top:10px">${S.cats.map((c,k)=>`<div class="card row" onclick="editCat(${k})" style="cursor:pointer"><span style="font-size:26px">${c.ico}</span><div style="flex:1"><b>${c.num}. ${c.n}</b><div class="mu">${S.items.filter(i=>i.cat===c.n).length} รายการ</div></div><span class="mu">แก้ไข ›</span></div>`).join('')}</div>
+ <div class="row" style="justify-content:space-between;margin-top:18px"><h2 style="margin:0">รายการพัสดุ</h2><button class="btn" onclick="editItem(0)">+ เพิ่มรายการ</button></div>
+ <div class="chips" style="margin-top:10px">${['ทั้งหมด',...S.cats.map(c=>c.n)].map(c=>`<button class="chip ${MC===c?'on':''}" onclick="MC='${c}';render()">${c}</button>`).join('')}</div>
+ ${l.map(i=>`<div class="card row" onclick="editItem(${i.id})" style="cursor:pointer"><div style="flex:1;min-width:0"><b>${i.name}</b><div class="mu">${i.code} · ${i.cat}</div></div><div class="mu" style="text-align:right">Max ${i.max}<br>Min ${i.min}</div></div>`).join('')||'<p class="mu">ยังไม่มีรายการในหมวดนี้ กด + เพิ่มรายการ</p>'}`}
+function editCat(k){const c=k<0?{n:'',num:Math.max(0,...S.cats.map(x=>x.num))+1,ico:'📦'}:S.cats[k];
+ sheet(`<h2>${k<0?'เพิ่มหมวดหมู่':'แก้ไขหมวดหมู่'}</h2><p class="mu">เลขลำดับ</p><input id="fn" type="number" inputmode="numeric" value="${c.num}"><p class="mu">ชื่อหมวด</p><input id="fm" value="${c.n}" placeholder="เช่น ห้องฉุกเฉิน"><p class="mu">ไอคอน (เลือกด้านล่าง หรือพิมพ์อีโมจิเอง)</p><input id="fi" value="${c.ico}" style="font-size:24px;text-align:center"><div class="qk">${EMO.map(e=>`<button style="min-width:48px;flex:none;font-size:22px" onclick="$('#fi').value='${e}'">${e}</button>`).join('')}</div><div class="row" style="margin-top:14px"><button class="btn w" onclick="saveCat(${k})">บันทึก</button>${k>=0?`<button class="btn d w" onclick="delCat(${k})">ลบหมวด</button>`:''}</div>`)}
+function saveCat(k){const n=clean($('#fm').value);if(!n)return toast('ใส่ชื่อหมวดก่อน');if(S.cats.some((c,j)=>j!==k&&c.n===n))return toast('มีหมวดชื่อนี้แล้ว');
+ const num=+$('#fn').value||1,ico=$('#fi').value.trim()||'📦';
+ if(k<0)S.cats.push({n,num,ico});else{const o=S.cats[k].n;S.items.forEach(i=>{if(i.cat===o)i.cat=n});if(CAT===o)CAT=n;if(MC===o)MC=n;S.cats[k]={n,num,ico}}
+ S.cats.sort((a,b)=>a.num-b.num);closeSh();render();toast('บันทึกหมวดแล้ว')}
+function delCat(k){const c=S.cats[k];if(S.items.some(i=>i.cat===c.n))return toast('ย้ายหรือลบรายการในหมวดนี้ก่อน');S.cats.splice(k,1);if(CAT===c.n)CAT='ทั้งหมด';if(MC===c.n)MC='ทั้งหมด';closeSh();render();toast('ลบหมวดแล้ว')}
+function editItem(id){if(!S.cats.length)return toast('เพิ่มหมวดหมู่ก่อน');DEL=0;const n=!id,i=n?{id:0,code:'',name:'',cat:MC!=='ทั้งหมด'?MC:S.cats[0].n,unit:'',min:10,max:40,b:[]}:it(id),tr=i.track??i.b.some(b=>b.exp);
+ sheet(`<h2>${n?'เพิ่มรายการ':'แก้ไขรายการ'}</h2><p class="mu">รหัส (ใช้เป็นรหัสบาร์โค้ด/QR)</p><input id="f1" value="${i.code}" placeholder="เช่น STK-025"><p class="mu">รายการ</p><input id="f2" value="${i.name}"><p class="mu">หมวดหมู่</p><select id="f3">${S.cats.map(c=>`<option ${c.n===i.cat?'selected':''}>${c.n}</option>`).join('')}</select>
+ <div class="row"><div style="flex:1"><p class="mu">Max</p><input id="f4" type="number" inputmode="numeric" value="${i.max}"></div><div style="flex:1"><p class="mu">Min</p><input id="f5" type="number" inputmode="numeric" value="${i.min}"></div><div style="flex:1"><p class="mu">หน่วย</p><input id="f6" value="${i.unit}" placeholder="กล่อง"></div></div>
+ <p class="mu">${n?'จำนวนคงเหลือเริ่มต้น':'ปรับยอดคงเหลือ (ตอนนี้ '+stock(i)+')'}</p><input id="f7" type="number" inputmode="numeric" value="${stock(i)}">
+ <label class="row" style="margin:12px 0"><input id="f8" type="checkbox" ${tr?'checked':''} style="width:24px;height:24px"> มีวันหมดอายุ (ใช้ FEFO)</label><p class="mu">วันหมดอายุของจำนวนที่เพิ่ม (ถ้ามีวันหมดอายุ)</p><input id="f9" type="date" value="${D(365)}">
+ <div class="row" style="margin-top:14px"><button class="btn w" onclick="saveItem(${id})">บันทึก</button>${n?'':`<button class="btn d w" onclick="delItem(${id})">ลบรายการ</button>`}</div>`)}
+function saveItem(id){const code=clean($('#f1').value).toUpperCase(),name=clean($('#f2').value);if(!code||!name)return toast('ใส่รหัสและชื่อรายการ');
+ if(S.items.some(x=>x.id!=id&&x.code===code))return toast('รหัสนี้ถูกใช้แล้ว');
+ const max=+$('#f4').value||0,min=+$('#f5').value||0;if(max<min)return toast('Max ต้องไม่น้อยกว่า Min');
+ const tr=$('#f8').checked,ex=tr?$('#f9').value||null:null,nq=Math.max(0,+$('#f7').value||0);let i;
+ if(!id){i={id:Math.max(0,...S.items.concat(S.old).map(x=>x.id))+1,b:[]};S.items.push(i)}else i=it(id);
+ Object.assign(i,{code,name,cat:$('#f3').value,unit:clean($('#f6').value)||'หน่วย',max,min,track:tr});
+ const d=nq-stock(i);
+ if(d>0){const f=!tr&&i.b.find(b=>!b.exp);if(f)f.q+=d;else i.b.push(B(tr?'ตั้งต้น':'-',ex,d))}
+ else if(d<0){let n=-d;i.b.sort((a,b)=>(a.exp||'9')<(b.exp||'9')?-1:1);for(const b of i.b){const t=Math.min(b.q,n);b.q-=t;n-=t;if(!n)break}}
+ if(d&&id)S.logs.unshift({t:D(0),ty:'ปรับยอด',id:i.id,q:Math.abs(d),by:S.user});
+ closeSh();render();toast('บันทึกรายการแล้ว')}
+function delItem(id){if(DEL!==id){DEL=id;return toast('แตะลบอีกครั้งเพื่อยืนยัน')}const i=it(id);S.items=S.items.filter(x=>x.id!==id);S.old.push(i);delete S.cart[id];S.tpl.forEach(t=>delete t.l[id]);DEL=0;closeSh();render();toast('ลบรายการแล้ว (ประวัติเดิมยังอยู่)')}
+function sumTxt(){const L=S.logs.filter(l=>l.t.slice(0,7)===MON);const g=(ty)=>{const o={};L.filter(l=>l.ty===ty).forEach(l=>o[l.id]=(o[l.id]||0)+l.q);return Object.entries(o).map(([id,q])=>`- ${it(id).name}: ${q} ${it(id).unit}`).join('\n')||'- ไม่มี'};
+ const tx=`สรุปการใช้พัสดุ หอผู้ป่วยโรคหลอดเลือดสมอง เดือน ${MON}\n\nตัดสต๊อก (ใช้จริง)\n${g('ตัดสต๊อก')}\n\nรับเข้าสต๊อก\n${g('รับเข้า')}\n\nต่ำกว่า Min ปัจจุบัน\n${S.items.filter(isLow).map(i=>`- ${i.name}: ${stock(i)}/${i.min}`).join('\n')||'- ไม่มี'}`;
+ sheet(`<h2>สรุปส่ง Head Nurse</h2><textarea id="sx" rows="14" style="width:100%;font:inherit;background:var(--sf);color:var(--tx);border:1px solid var(--ln);border-radius:10px;padding:10px">${tx}</textarea><button class="btn w" style="margin-top:10px" onclick="try{navigator.clipboard.writeText($('#sx').value);toast('คัดลอกแล้ว')}catch(e){$('#sx').select();toast('เลือกข้อความแล้ว กดคัดลอกได้เลย')}">คัดลอกข้อความ</button>`)}
+render();
+</script>
+</body>
+</html>
