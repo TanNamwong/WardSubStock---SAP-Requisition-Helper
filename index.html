@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0b4f4a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="พัสดุวอร์ด">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>พัสดุวอร์ด · Stroke Unit</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -76,13 +84,70 @@ button:active{transform:scale(.97)}
 .cat i{font-style:normal;font-size:28px;line-height:1}
 .cat.on{background:var(--pr);color:var(--pt);border-color:var(--pr);font-weight:700}
 .cat em{position:absolute;top:4px;right:4px;background:var(--rd);color:#fff;font-style:normal;font-size:11px;min-width:18px;line-height:18px;border-radius:9px}
+.pw{flex:none;display:flex;align-items:center;gap:10px;padding:10px 14px;font-size:14px;border-bottom:1px solid var(--ln);background:var(--ab);color:var(--tx)}
+.pw.up{background:var(--gb)}.pw>span{flex:1;line-height:1.35}.pw .btn{min-height:40px;padding:8px 14px;white-space:nowrap}.pw .x{border:0;background:none;color:var(--mu);font-size:20px;min-width:36px;min-height:40px}
+
+/* ===== UI v1.2 : ทางการ สวยงาม สัดส่วนลงตัว ===== */
+:root{--r:16px;--sd:0 1px 2px rgba(11,79,74,.06),0 6px 18px rgba(11,79,74,.07);--ac:#7c3aed}
+body{letter-spacing:.1px}
+header{display:flex;align-items:center;gap:12px;padding:12px 16px 16px;border-radius:0 0 22px 22px;background:linear-gradient(135deg,var(--hd),color-mix(in srgb,var(--hd) 62%,var(--pr)));box-shadow:0 6px 18px rgba(11,79,74,.22);position:relative;z-index:10}
+header .lg{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:24px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28)}
+header .hx{flex:1;min-width:0}header small{opacity:.85;font-size:11px;letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+header b{display:block;font-size:19px;font-weight:700;line-height:1.3}
+header .dt{flex:none;font-size:12px;padding:4px 10px;border-radius:99px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25)}
+main{padding:18px 14px calc(100px + env(safe-area-inset-bottom,0px))}
+nav{border-radius:22px 22px 0 0;border-top:0;box-shadow:0 -6px 20px rgba(11,79,74,.12);padding-top:4px}
+nav button{font-size:12px;min-height:64px;padding:6px 0 4px;transition:color .15s}
+nav button i{width:52px;margin:0 auto 3px;padding:3px 0;border-radius:16px;font-size:21px;transition:background .15s}
+nav button.on i{background:color-mix(in srgb,var(--pr) 16%,transparent)}
+nav .bd{left:calc(50% + 10px);top:2px;box-shadow:0 0 0 2px var(--sf)}
+h2{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700;margin:6px 0 12px}
+h2:before{content:"";flex:none;width:4px;height:18px;border-radius:2px;background:var(--pr)}
+h3{font-size:13px;font-weight:700;color:var(--mu);letter-spacing:.4px;margin:22px 2px 10px}
+.card{border-radius:var(--r);border-color:color-mix(in srgb,var(--ln) 70%,transparent);box-shadow:var(--sd);padding:14px}
+.it{border-left-width:5px;gap:12px}
+.it>div:first-child:not(.n){flex:none;width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:var(--gb);font-size:23px!important}
+.it.low>div:first-child:not(.n){background:var(--rb)}.it.warn>div:first-child:not(.n){background:var(--ab)}
+.it .n b{font-weight:700}
+.grid{gap:10px;margin-bottom:14px}
+.grid .card{padding:14px 4px;border-top:3px solid var(--pr)}
+.grid b{font-size:28px;color:var(--pr)}
+.chips{gap:8px;padding:2px 2px 10px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
+.chip{border-radius:99px;font-weight:500;box-shadow:0 1px 2px rgba(11,79,74,.05)}
+.chip.on{box-shadow:0 3px 10px color-mix(in srgb,var(--pr) 35%,transparent)}
+input,select,textarea{border-radius:12px;padding:12px 14px;border-color:color-mix(in srgb,var(--ln) 85%,var(--mu))}
+input:focus,select:focus,textarea:focus{outline:3px solid color-mix(in srgb,var(--pr) 28%,transparent);border-color:var(--pr)}
+#sq{padding-left:44px;background:var(--sf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Ctext y='17' font-size='16'%3E🔍%3C/text%3E%3C/svg%3E") no-repeat 14px center;box-shadow:var(--sd)}
+.btn{border-radius:12px;box-shadow:0 3px 10px color-mix(in srgb,var(--pr) 28%,transparent);letter-spacing:.2px}
+.btn.s,.btn.d{box-shadow:none}
+.cg{gap:10px;margin:12px 0 8px}
+.cat{border-radius:var(--r);box-shadow:var(--sd);border-color:color-mix(in srgb,var(--ln) 70%,transparent);min-height:108px;padding:12px 4px 10px;gap:8px;font-size:13px;font-weight:500;justify-content:center;transition:transform .12s}
+.cat i{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;font-size:28px;background:linear-gradient(145deg,var(--gb),color-mix(in srgb,var(--gb) 50%,var(--sf)))}
+.cat.on{background:linear-gradient(145deg,var(--pr),color-mix(in srgb,var(--pr) 75%,#000))}.cat.on i{background:rgba(255,255,255,.22)}
+.cat em{top:6px;right:6px;box-shadow:0 0 0 2px var(--sf)}
+#cl{border-radius:var(--r);box-shadow:var(--sd);border-color:color-mix(in srgb,var(--ln) 70%,transparent)}
+.rc{padding:11px 14px}
+.tag{font-weight:600}
+.bar{height:10px;border-radius:5px}.bar i{border-radius:5px;background:linear-gradient(90deg,var(--pr),color-mix(in srgb,var(--pr) 60%,#fff))}
+.sh>div{border-radius:24px 24px 0 0;padding-top:12px;box-shadow:0 -10px 40px rgba(0,0,0,.25)}
+.sh>div:before{content:"";display:block;width:42px;height:4px;border-radius:2px;background:var(--ln);margin:0 auto 14px}
+.pw{border-radius:14px;margin:10px 14px 0;border:1px solid var(--ln);box-shadow:var(--sd)}
+#toast{box-shadow:0 8px 24px rgba(0,0,0,.25);bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+.sk{top:-18px;margin:-18px -14px 12px;padding:12px 14px}
+@media(min-width:768px){header{padding:14px 28px 18px}main{padding:22px 28px 120px}.sk{top:-22px;margin:-22px -28px 12px;padding:12px 28px}nav{left:50%;right:auto;width:min(720px,100%);transform:translateX(-50%)}.cat{min-height:124px}}
+.card.row>span[style*="font-size:26px"]{flex:none;width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:var(--gb);font-size:24px!important}
+header .dt{font-size:11.5px;padding:4px 9px}
 </style>
 </head>
 <body>
-<header><small>หอผู้ป่วยโรคหลอดเลือดสมอง (Stroke Unit)</small><b id="ttl">หน้าหลัก</b></header>
+<header><span class="lg">🏥</span><div class="hx"><small>🧠 หอผู้ป่วยโรคหลอดเลือดสมอง (Stroke Unit)</small><b id="ttl">📦 หน้าหลัก</b></div><span class="dt" id="dt"></span></header>
+<div id="pwa" hidden></div>
 <main id="m"></main>
 <nav id="nv"></nav>
 <div id="toast"></div>
+<input type="file" id="fFile" accept=".csv,.tsv,.txt,.xlsx,.xls,text/plain,text/csv" hidden onchange="impFile(this)">
+<input type="file" id="fImg" accept="image/*" hidden onchange="impImg(this)">
+<input type="file" id="fCam" accept="image/*" capture="environment" hidden onchange="impImg(this)">
 <script>
 const $=s=>document.querySelector(s);
 const D=n=>{const x=new Date();x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)};
@@ -180,7 +245,7 @@ const TABS=[['home','📦','หน้าหลัก'],['alert','🔔','แจ�
 function go(t){stopCam();T=t;if(t==='home')CAT='ทั้งหมด';render();$('#m').scrollTop=0;if(t==='scan')startCam()}
 function render(){syncCats();
  $('#nv').innerHTML=TABS.map(([k,i,l])=>`<button class="${T===k?'on':''}" onclick="go('${k}')"><i>${i}</i>${l}${(k==='req'?cartN():k==='alert'?alN():0)?`<span class="bd">${k==='req'?cartN():alN()}</span>`:''}</button>`).join('');
- $('#ttl').textContent=TABS.find(x=>x[0]===T)[2];
+ {const tb=TABS.find(x=>x[0]===T);$('#ttl').textContent=tb[1]+' '+tb[2];$('#dt').textContent='📅 '+new Date().toLocaleDateString('th-TH',{day:'numeric',month:'short'})}
  $('#m').innerHTML=({home:vHome,alert:vAlert,scan:vScan,req:vReq,rep:vRep,manage:vManage})[T]();save();
 }
 function row(i){const s=stock(i),e=nearest(i),lv=exLv(i);
@@ -207,18 +272,20 @@ function rowC(i){const s=sl(i),c=['g','y','r'][s],e=nearest(i),lv=exLv(i);
 function vCat(){const l=S.items.filter(i=>i.cat===CAT).sort((a,b)=>sl(b)-sl(a)||(a.code<b.code?-1:1)),n=l.filter(i=>sl(i)==2).length;
  return `<div class="sk"><div class="row"><button class="chip" onclick="CAT='ทั้งหมด';render();$('#m').scrollTop=0">‹ กลับ</button><b style="flex:1;font-size:17px">${ICO[CAT]} ${NUM[CAT]}.${CAT}</b><span class="mu">${l.length} รายการ${n?' · <b style="color:var(--rd)">ต้องเบิก '+n+'</b>':''}</span></div><div class="mu" style="font-size:12px;margin-top:4px">🟢 เพียงพอ 🟡 ใกล้หมด 🔴 ต่ำกว่า Min/หมด</div></div><div id="cl">${l.map(rowC).join('')||'<p class="mu" style="padding:12px">ยังไม่มีรายการในหมวดนี้ เพิ่มได้ที่เมนู จัดการ</p>'}</div>`}
 function openItem(id,fromScan){
- const i=it(id),bs=[...i.b].filter(b=>b.q>0).sort((a,b)=>(a.exp||'9')<(b.exp||'9')?-1:1);
+ const i=it(id);
  sheet(`<h2>${ICO[i.cat]} ${i.name}</h2><p class="mu">${i.code} · ${i.cat} · Min ${i.min} / Max ${i.max} ${i.unit}</p>
- <div class="card ${isLow(i)?'low':''}"><div class="row" style="justify-content:space-between"><b>คงเหลือ</b><b style="font-size:22px;color:${isLow(i)?'var(--rd)':'inherit'}">${stock(i)} ${i.unit}</b></div><div class="bar" style="margin-top:6px"><i style="width:${Math.min(100,stock(i)/i.max*100)}%;background:${isLow(i)?'var(--rd)':'var(--pr)'}"></i></div></div>
- <h3>ล็อตที่ต้องหยิบก่อน (FEFO)</h3>${bs.map((b,k)=>`<div class="card row" style="justify-content:space-between;padding:8px 12px"><span>${k==0&&b.exp?'👉 ':''}Lot ${b.lot} · ${fd(b.exp)}</span><b>${b.q}</b></div>`).join('')||'<p class="mu">ไม่มีสต๊อก</p>'}
- <h3>จำนวน</h3><div class="stp"><button onclick="sq(-1)">−</button><input id="aq" type="number" inputmode="numeric" value="1" min="1"><button onclick="sq(1)">+</button><span class="mu">${i.unit}</span></div><div class="qk">${[1,5,10,50].map(n=>`<button onclick="qa(${n})">+${n}</button>`).join('')}<button onclick="$('#aq').value=${Math.max(1,i.max-stock(i))};$('#aq').dataset.t=1">เติมถึง Max</button><button onclick="$('#aq').value=1;delete $('#aq').dataset.t">ล้าง</button></div>
- <div class="row" style="margin-top:14px"><button class="btn w" onclick="cut(${id})">ตัดสต๊อก (ใช้แล้ว)</button><button class="btn s w" onclick="addC(${id})">+ รายการเบิก</button></div>
- <button class="btn s w" style="margin-top:8px;border-color:var(--ln);color:var(--mu)" onclick="closeSh();${fromScan?'startCam()':''}">ปิด</button>`)}
+ <div class="card ${isLow(i)?'low':''}"><div class="row" style="justify-content:space-between"><b>คงเหลือในสต๊อก</b><b style="font-size:22px;color:${isLow(i)?'var(--rd)':'inherit'}">${stock(i)} ${i.unit}</b></div><div class="bar" style="margin-top:6px"><i style="width:${Math.min(100,stock(i)/i.max*100)}%;background:${isLow(i)?'var(--rd)':'var(--pr)'}"></i></div></div>
+ <h3>เช็คสต๊อก</h3><div class="row"><input id="cd" type="date" value="${D(0)}" style="flex:1.3"><input id="cq" type="number" inputmode="numeric" min="0" placeholder="คงเหลือ" value="${stock(i)}" style="flex:1"></div><button class="btn w" style="margin-top:8px" onclick="chk(${id})">บันทึกเช็คสต๊อก</button>${hl(i,l=>l.ty==='เช็คสต๊อก',l=>l.bal)}
+  <h3>เติมสต๊อก</h3><div class="row"><input id="fdt" type="date" value="${D(0)}" style="flex:1.3"><input id="fq" type="number" inputmode="numeric" min="1" placeholder="จำนวน" style="flex:1"></div><button class="btn w" style="margin-top:8px" onclick="fil(${id})">บันทึกเติมสต๊อก</button>${hl(i,l=>l.ty==='รับเข้า'||(l.ty==='ปรับยอด'&&l.up),l=>l.q)}`)}
+function addTo(i,d){if(d>0){const f=i.b.find(b=>!b.exp);if(f)f.q+=d;else i.b.push(B('-',null,d))}else if(d<0){let n=-d;i.b.sort((a,b)=>(a.exp||'9')<(b.exp||'9')?-1:1);for(const b of i.b){const t=Math.min(b.q,n);b.q-=t;n-=t;if(!n)break}}}
+function chk(id){const i=it(id),t=$('#cd').value,v=$('#cq').value;if(!t)return toast('เลือกวันที่');if(v===''||+v<0)return toast('ใส่จำนวนคงเหลือ');addTo(i,+v-stock(i));S.logs.unshift({t,ty:'เช็คสต๊อก',id:i.id,q:+v,bal:stock(i),by:S.user});closeSh();render();toast('บันทึกเช็คสต๊อกแล้ว')}
+function fil(id){const i=it(id),t=$('#fdt').value,q=+$('#fq').value;if(!t)return toast('เลือกวันที่');if(q<1)return toast('ใส่จำนวนอย่างน้อย 1');addTo(i,q);S.logs.unshift({t,ty:'รับเข้า',id:i.id,q,bal:stock(i),by:S.user});closeSh();render();toast(`เติมสต๊อก ${i.name} ${q} ${i.unit} แล้ว`)}
+const hl=(i,f,v)=>{const r=S.logs.filter(l=>l.id==i.id&&f(l)).slice(0,5);return r.map(l=>`<div class="card row" style="justify-content:space-between;padding:8px 12px"><span>${fd(l.t)}</span><b>${v(l)} ${i.unit}</b></div>`).join('')||'<p class="mu">ยังไม่มีข้อมูล</p>'};
 const qa=n=>{const e=$('#aq');e.value=e.dataset.t?(+e.value||0)+n:n;e.dataset.t=1};
 const sq=d=>{const e=$('#aq');e.value=Math.max(1,(+e.value||1)+d)};
 function cut(id){const i=it(id);let n=+$('#aq').value||0;if(n<1)return toast('ใส่จำนวนอย่างน้อย 1');if(n>stock(i))return toast(`สต๊อกมีแค่ ${stock(i)} ${i.unit}`);
  const q=n;i.b.sort((a,b)=>(a.exp||'9')<(b.exp||'9')?-1:1);for(const b of i.b){const t=Math.min(b.q,n);b.q-=t;n-=t;if(!n)break}
- S.logs.unshift({t:D(0),ty:'ตัดสต๊อก',id,q,by:S.user});closeSh();render();toast(`ตัดสต๊อก ${i.name} ${q} ${i.unit} แล้ว`+(isLow(i)?' — ต่ำกว่า Min!':''))}
+ S.logs.unshift({t:D(0),ty:'ตัดสต๊อก',id,q,bal:stock(i),by:S.user});closeSh();render();toast(`ตัดสต๊อก ${i.name} ${q} ${i.unit} แล้ว`+(isLow(i)?' — ต่ำกว่า Min!':''))}
 function addC(id){const n=+$('#aq').value||1;S.cart[id]=(S.cart[id]||0)+n;closeSh();render();toast('เพิ่มลงรายการเบิกแล้ว')}
 function fillLow(){S.items.filter(isLow).forEach(i=>S.cart[i.id]=Math.max(S.cart[i.id]||0,i.max-stock(i)));SUB='cart';go('req')}
 function sheet(h){closeSh();const d=document.createElement('div');d.className='sh';d.id='sh';d.innerHTML='<div>'+h+'</div>';d.onclick=e=>{if(e.target===d){closeSh();if(T==='scan')startCam()}};document.body.appendChild(d)}
@@ -246,7 +313,7 @@ function recvList(){sheet(`<h2>รับของเข้าสต๊อก</h2
 function doRecv(){const ds={};document.querySelectorAll('.rx').forEach(e=>ds[e.dataset.id]=e.value);let n=0;
  document.querySelectorAll('.rq').forEach(e=>{const id=e.dataset.id,q=Math.max(0,+e.value||0);if(!q)return;const i=it(id),ex=ds[id]||null;
   const f=!ex&&i.b.find(b=>!b.exp);if(f)f.q+=q;else i.b.push(B(ex?'R'+D(0).replace(/-/g,'').slice(2):'-',ex,q));
-  S.logs.unshift({t:D(0),ty:'รับเข้า',id:+id,q,by:S.user});delete S.cart[id];n++});
+  S.logs.unshift({t:D(0),ty:'รับเข้า',id:+id,q,bal:stock(i),by:S.user});delete S.cart[id];n++});
  closeSh();render();toast(n?`รับเข้าสต๊อก ${n} รายการแล้ว`:'ยังไม่ได้ใส่จำนวนที่รับ')}
 
 /* report */
@@ -262,9 +329,11 @@ let MC='ทั้งหมด',DEL=0;
 const EMO=['📄','🧹','🗂️','🔬','💊','⚗️','🩺','🩸','🖨️','🧴','🧤','🧻','🛏️','🧪','📦','🩹'];
 const clean=s=>(s||'').replace(/[\x27\x22<>&\x60$\\]/g,'').trim();
 function vManage(){const l=S.items.filter(i=>MC==='ทั้งหมด'||i.cat===MC);
- return `<div class="row" style="justify-content:space-between"><h2 style="margin:0">หมวดหมู่ (${S.cats.length})</h2><button class="btn" onclick="editCat(-1)">+ เพิ่มหมวด</button></div>
+ return `${pwaCard()}<div class="row" style="justify-content:space-between"><h2 style="margin:0">หมวดหมู่ (${S.cats.length})</h2><button class="btn" onclick="editCat(-1)">+ เพิ่มหมวด</button></div>
  <div style="margin-top:10px">${S.cats.map((c,k)=>`<div class="card row" onclick="editCat(${k})" style="cursor:pointer"><span style="font-size:26px">${c.ico}</span><div style="flex:1"><b>${c.num}. ${c.n}</b><div class="mu">${S.items.filter(i=>i.cat===c.n).length} รายการ</div></div><span class="mu">แก้ไข ›</span></div>`).join('')}</div>
  <div class="row" style="justify-content:space-between;margin-top:18px"><h2 style="margin:0">รายการพัสดุ</h2><button class="btn" onclick="editItem(0)">+ เพิ่มรายการ</button></div>
+  <div class="row" style="margin-top:10px">${[['📄','จากไฟล์',"$('#fFile').click()"],['🖼️','จากรูปภาพ',"$('#fImg').click()"],['📷','ถ่ายด้วยกล้อง',"$('#fCam').click()"]].map(([e,l,f])=>`<button class="btn s" style="flex:1;line-height:1.3;padding:8px 4px" onclick="${f}"><span style="font-size:24px">${e}</span><br><small>${l}</small></button>`).join('')}</div>
+  <div class="mu" style="margin:6px 2px 0">นำเข้ารายการพัสดุเข้าหมวดหมู่ · รองรับ CSV / TXT / Excel · <a href="#" onclick="impSample();return false" style="color:var(--pr)">⬇️ ไฟล์ตัวอย่าง</a><br>อ่านข้อความจากรูปต้องต่อเน็ต และควรเป็นรูปรายการที่ชัดเจน</div>
  <div class="chips" style="margin-top:10px">${['ทั้งหมด',...S.cats.map(c=>c.n)].map(c=>`<button class="chip ${MC===c?'on':''}" onclick="MC='${c}';render()">${c}</button>`).join('')}</div>
  ${l.map(i=>`<div class="card row" onclick="editItem(${i.id})" style="cursor:pointer"><div style="flex:1;min-width:0"><b>${i.name}</b><div class="mu">${i.code} · ${i.cat}</div></div><div class="mu" style="text-align:right">Max ${i.max}<br>Min ${i.min}</div></div>`).join('')||'<p class="mu">ยังไม่มีรายการในหมวดนี้ กด + เพิ่มรายการ</p>'}`}
 function editCat(k){const c=k<0?{n:'',num:Math.max(0,...S.cats.map(x=>x.num))+1,ico:'📦'}:S.cats[k];
@@ -276,26 +345,150 @@ function saveCat(k){const n=clean($('#fm').value);if(!n)return toast('ใส่�
 function delCat(k){const c=S.cats[k];if(S.items.some(i=>i.cat===c.n))return toast('ย้ายหรือลบรายการในหมวดนี้ก่อน');S.cats.splice(k,1);if(CAT===c.n)CAT='ทั้งหมด';if(MC===c.n)MC='ทั้งหมด';closeSh();render();toast('ลบหมวดแล้ว')}
 function editItem(id){if(!S.cats.length)return toast('เพิ่มหมวดหมู่ก่อน');DEL=0;const n=!id,i=n?{id:0,code:'',name:'',cat:MC!=='ทั้งหมด'?MC:S.cats[0].n,unit:'',min:10,max:40,b:[]}:it(id),tr=i.track??i.b.some(b=>b.exp);
  sheet(`<h2>${n?'เพิ่มรายการ':'แก้ไขรายการ'}</h2><p class="mu">รหัส (ใช้เป็นรหัสบาร์โค้ด/QR)</p><input id="f1" value="${i.code}" placeholder="เช่น STK-025"><p class="mu">รายการ</p><input id="f2" value="${i.name}"><p class="mu">หมวดหมู่</p><select id="f3">${S.cats.map(c=>`<option ${c.n===i.cat?'selected':''}>${c.n}</option>`).join('')}</select>
+ <p class="mu">${n?'จำนวนสต็อก':'จำนวนสต็อก (ตอนนี้ '+stock(i)+')'}</p><input id="f7" type="number" inputmode="numeric" value="${stock(i)}">
  <div class="row"><div style="flex:1"><p class="mu">Max</p><input id="f4" type="number" inputmode="numeric" value="${i.max}"></div><div style="flex:1"><p class="mu">Min</p><input id="f5" type="number" inputmode="numeric" value="${i.min}"></div><div style="flex:1"><p class="mu">หน่วย</p><input id="f6" value="${i.unit}" placeholder="กล่อง"></div></div>
- <p class="mu">${n?'จำนวนคงเหลือเริ่มต้น':'ปรับยอดคงเหลือ (ตอนนี้ '+stock(i)+')'}</p><input id="f7" type="number" inputmode="numeric" value="${stock(i)}">
- <label class="row" style="margin:12px 0"><input id="f8" type="checkbox" ${tr?'checked':''} style="width:24px;height:24px"> มีวันหมดอายุ (ใช้ FEFO)</label><p class="mu">วันหมดอายุของจำนวนที่เพิ่ม (ถ้ามีวันหมดอายุ)</p><input id="f9" type="date" value="${D(365)}">
  <div class="row" style="margin-top:14px"><button class="btn w" onclick="saveItem(${id})">บันทึก</button>${n?'':`<button class="btn d w" onclick="delItem(${id})">ลบรายการ</button>`}</div>`)}
 function saveItem(id){const code=clean($('#f1').value).toUpperCase(),name=clean($('#f2').value);if(!code||!name)return toast('ใส่รหัสและชื่อรายการ');
  if(S.items.some(x=>x.id!=id&&x.code===code))return toast('รหัสนี้ถูกใช้แล้ว');
  const max=+$('#f4').value||0,min=+$('#f5').value||0;if(max<min)return toast('Max ต้องไม่น้อยกว่า Min');
- const tr=$('#f8').checked,ex=tr?$('#f9').value||null:null,nq=Math.max(0,+$('#f7').value||0);let i;
+ const tr=!!(id&&it(id).track),ex=null,nq=Math.max(0,+$('#f7').value||0);let i;
  if(!id){i={id:Math.max(0,...S.items.concat(S.old).map(x=>x.id))+1,b:[]};S.items.push(i)}else i=it(id);
  Object.assign(i,{code,name,cat:$('#f3').value,unit:clean($('#f6').value)||'หน่วย',max,min,track:tr});
  const d=nq-stock(i);
  if(d>0){const f=!tr&&i.b.find(b=>!b.exp);if(f)f.q+=d;else i.b.push(B(tr?'ตั้งต้น':'-',ex,d))}
  else if(d<0){let n=-d;i.b.sort((a,b)=>(a.exp||'9')<(b.exp||'9')?-1:1);for(const b of i.b){const t=Math.min(b.q,n);b.q-=t;n-=t;if(!n)break}}
- if(d&&id)S.logs.unshift({t:D(0),ty:'ปรับยอด',id:i.id,q:Math.abs(d),by:S.user});
+ if(d&&id)S.logs.unshift({t:D(0),ty:'ปรับยอด',id:i.id,q:Math.abs(d),up:d>0,bal:stock(i),by:S.user});
  closeSh();render();toast('บันทึกรายการแล้ว')}
 function delItem(id){if(DEL!==id){DEL=id;return toast('แตะลบอีกครั้งเพื่อยืนยัน')}const i=it(id);S.items=S.items.filter(x=>x.id!==id);S.old.push(i);delete S.cart[id];S.tpl.forEach(t=>delete t.l[id]);DEL=0;closeSh();render();toast('ลบรายการแล้ว (ประวัติเดิมยังอยู่)')}
 function sumTxt(){const L=S.logs.filter(l=>l.t.slice(0,7)===MON);const g=(ty)=>{const o={};L.filter(l=>l.ty===ty).forEach(l=>o[l.id]=(o[l.id]||0)+l.q);return Object.entries(o).map(([id,q])=>`- ${it(id).name}: ${q} ${it(id).unit}`).join('\n')||'- ไม่มี'};
  const tx=`สรุปการใช้พัสดุ หอผู้ป่วยโรคหลอดเลือดสมอง เดือน ${MON}\n\nตัดสต๊อก (ใช้จริง)\n${g('ตัดสต๊อก')}\n\nรับเข้าสต๊อก\n${g('รับเข้า')}\n\nต่ำกว่า Min ปัจจุบัน\n${S.items.filter(isLow).map(i=>`- ${i.name}: ${stock(i)}/${i.min}`).join('\n')||'- ไม่มี'}`;
  sheet(`<h2>สรุปส่ง Head Nurse</h2><textarea id="sx" rows="14" style="width:100%;font:inherit;background:var(--sf);color:var(--tx);border:1px solid var(--ln);border-radius:10px;padding:10px">${tx}</textarea><button class="btn w" style="margin-top:10px" onclick="try{navigator.clipboard.writeText($('#sx').value);toast('คัดลอกแล้ว')}catch(e){$('#sx').select();toast('เลือกข้อความแล้ว กดคัดลอกได้เลย')}">คัดลอกข้อความ</button>`)}
 render();
+</script>
+<script>
+/* ===== นำเข้ารายการ จากไฟล์ / รูป / กล้อง ===== */
+let IMP=[];
+const loadJS=u=>new Promise((ok,no)=>{const e=document.createElement('script');e.src=u;e.onload=ok;e.onerror=()=>no(new Error('load'));document.head.appendChild(e)});
+function impParse(txt,ocr){
+ if(ocr)txt=txt.replace(/([\u0E00-\u0E7F])[ \t]+(?=[\u0E00-\u0E7F])/g,'$1');
+ const L=txt.replace(/\r/g,'').split('\n').map(x=>x.trim()).filter(Boolean);if(!L.length)return[];
+ const d=L[0].includes('\t')?'\t':L[0].includes('|')?'|':L[0].includes(',')?',':null;
+ const H={name:/ชื่อ|รายการ|name|item/i,code:/รหัส|code|sku/i,unit:/หน่วย|unit/i,cat:/หมวด|cat/i,min:/^min|ต่ำ/i,max:/^max|สูง/i,qty:/จำนวน|คงเหลือ|qty|stock/i};
+ let map=null,st=0;
+ if(d){const m={};L[0].split(d).forEach((x,k)=>{x=x.trim();for(const key in H)if(m[key]==null&&H[key].test(x)){m[key]=k;break}});if(m.name!=null){map=m;st=1}}
+ const seen=new Set(),out=[];
+ for(const l of L.slice(st)){
+  const r={name:'',code:'',unit:'',cat:'',min:'',max:'',qty:''};
+  if(d){const c=l.split(d).map(x=>x.trim().replace(/^"|"$/g,''));if(map){for(const k in map)r[k]=c[map[k]]||''}else{r.name=c[0]||'';r.unit=c[1]||''}}
+  else r.name=l.replace(/^[\-–•*·●○▪■□✓✔]+\s*/,'').replace(/^\d{1,3}\s*[.)\]]\s*/,'');
+  r.name=clean(r.name).replace(/\s{2,}/g,' ');r.code=clean(r.code).toUpperCase();r.unit=clean(r.unit);r.cat=clean(r.cat);
+  if(r.name.length<2||!/[\u0E00-\u0E7Fa-zA-Z0-9]/.test(r.name))continue;
+  const k=r.name.toLowerCase();if(seen.has(k))continue;seen.add(k);out.push(r)}
+ return out}
+function impCat(v){v=(v||'').trim();if(!v)return'';const c=S.cats.find(c=>c.n===v||String(c.num)===v||c.n.includes(v)||v.includes(c.n));return c?c.n:''}
+function impOpen(rows,src){
+ if(!rows.length){closeSh();return toast('ไม่พบรายการที่นำเข้าได้')}
+ const dc=MC!=='ทั้งหมด'?MC:S.cats[0].n,have=new Set(S.items.map(i=>i.name.toLowerCase()));
+ IMP=rows.map(r=>({...r,dup:have.has(r.name.toLowerCase()),cat:impCat(r.cat)||dc}));IMP.forEach(r=>r.on=!r.dup);impShow(src)}
+function impShow(src){
+ {const t=$('#toast');if(t)t.style.display='none'}
+ const co=c=>S.cats.map(x=>`<option ${x.n===c?'selected':''}>${x.n}</option>`).join('');
+ sheet(`<h2>📥 ตรวจรายการก่อนเพิ่ม</h2><p class="mu">พบ ${IMP.length} รายการ จาก${src} · แก้ไขหรือเอาเครื่องหมายถูกออกได้</p>
+ <div class="row" style="margin-bottom:10px"><select id="ica" style="flex:1">${co('')}</select><button class="chip" onclick="IMP.forEach(r=>r.cat=$('#ica').value);impShow('${src}')">ตั้งหมวดทุกรายการ</button></div>
+ ${IMP.map((r,k)=>`<div class="card" style="padding:10px"><div class="row"><input type="checkbox" ${r.on?'checked':''} style="width:24px;height:24px;flex:none" onchange="IMP[${k}].on=this.checked;impCnt()"><input value="${r.name}" oninput="IMP[${k}].name=clean(this.value)"></div>${r.dup?'<div class="mu" style="margin:4px 0 0 32px">⚠️ มีชื่อนี้อยู่แล้ว</div>':''}
+ <div class="row" style="margin-top:6px"><select style="flex:1" onchange="IMP[${k}].cat=this.value">${co(r.cat)}</select><input placeholder="หน่วย" value="${r.unit}" style="width:92px" oninput="IMP[${k}].unit=clean(this.value)"></div>
+ <div class="row" style="margin-top:6px"><input placeholder="รหัส (อัตโนมัติ)" value="${r.code}" oninput="IMP[${k}].code=clean(this.value).toUpperCase()"><input type="number" inputmode="numeric" placeholder="Min" value="${r.min}" style="width:76px" oninput="IMP[${k}].min=this.value"><input type="number" inputmode="numeric" placeholder="Max" value="${r.max}" style="width:76px" oninput="IMP[${k}].max=this.value"></div></div>`).join('')}
+ <button class="btn w" id="impb" onclick="impSave()"></button>`);impCnt()}
+function impCnt(){const n=IMP.filter(r=>r.on).length,b=$('#impb');if(b){b.textContent=`➕ เพิ่ม ${n} รายการ`;b.disabled=!n}}
+function impSave(){
+ const used=new Set(S.items.concat(S.old).map(i=>i.code));let n=0,seq=1,nid=Math.max(0,...S.items.concat(S.old).map(i=>i.id))+1,last='';
+ for(const r of IMP){if(!r.on||r.name.length<2)continue;
+  let c=r.code;if(!c||used.has(c)){do{c='IMP-'+String(seq++).padStart(3,'0')}while(used.has(c))}used.add(c);
+  let mn=+r.min,mx=+r.max;if(!(mn>=0)||r.min==='')mn=10;if(!(mx>0)||r.max==='')mx=Math.max(40,mn);if(mx<mn)mx=mn;
+  const q=Math.max(0,+r.qty||0);
+  S.items.push({id:nid++,code:c,name:r.name,cat:r.cat,unit:r.unit||'หน่วย',max:mx,min:mn,track:false,b:q?[B('-',null,q)]:[]});last=r.cat;n++}
+ if(!n)return toast('ยังไม่ได้เลือกรายการ');
+ MC=last||MC;closeSh();render();toast(`เพิ่ม ${n} รายการเข้าหมวดแล้ว ✓`)}
+async function impFile(inp){
+ const f=inp.files&&inp.files[0];inp.value='';if(!f)return;toast('กำลังอ่านไฟล์…');
+ try{let txt;
+  if(/\.xlsx?$/i.test(f.name)){
+   if(!window.XLSX)await loadJS('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js');
+   const wb=XLSX.read(await f.arrayBuffer());txt=XLSX.utils.sheet_to_csv(wb.Sheets[wb.SheetNames[0]],{FS:'\t'})}
+  else{const buf=await f.arrayBuffer();txt=new TextDecoder('utf-8').decode(buf);if(txt.includes('\uFFFD')){try{txt=new TextDecoder('windows-874').decode(buf)}catch(e){}}txt=txt.replace(/^\uFEFF/,'')}
+  impOpen(impParse(txt,false),'ไฟล์ '+clean(f.name))
+ }catch(e){toast('อ่านไฟล์ไม่สำเร็จ (Excel ต้องต่อเน็ตครั้งแรก) ลองบันทึกเป็น CSV')}}
+function impPrep(f){return new Promise((ok,no)=>{const u=URL.createObjectURL(f),im=new Image();im.onload=()=>{const m=1800,k=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);ok(c)};im.onerror=()=>no(new Error('img'));im.src=u})}
+async function impImg(inp){
+ const f=inp.files&&inp.files[0];inp.value='';if(!f)return;
+ if(!navigator.onLine)return toast('อ่านข้อความจากรูปต้องต่ออินเทอร์เน็ต');
+ sheet('<h2>🔍 กำลังอ่านข้อความจากรูป</h2><div class="bar"><i id="ocb" style="width:4%"></i></div><p class="mu" id="oct">กำลังเตรียม… ครั้งแรกจะโหลดข้อมูลภาษาไทย อาจใช้เวลาสักครู่</p>');
+ try{
+  if(!window.Tesseract)await loadJS('https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.1.1/tesseract.min.js');
+  const cv=await impPrep(f);
+  const r=await Tesseract.recognize(cv,'tha+eng',{logger:m=>{const b=$('#ocb');if(b&&m.progress!=null){b.style.width=Math.max(4,Math.round(m.progress*100))+'%';const t=$('#oct');if(t)t.textContent=m.status==='recognizing text'?'กำลังอ่านข้อความ '+Math.round(m.progress*100)+'%':'กำลังโหลดข้อมูล…'}}});
+  impOpen(impParse(r.data.text||'',true),'รูปภาพ')
+ }catch(e){closeSh();toast('อ่านรูปไม่สำเร็จ ตรวจสอบอินเทอร์เน็ตแล้วลองใหม่')}}
+function impSample(){
+ const t='\uFEFFชื่อรายการ,รหัส,หน่วย,หมวด,Min,Max,จำนวน\nกระดาษ A4,,รีม,สำนักงาน,5,20,12\nปากกาลูกลื่นสีน้ำเงิน,,ด้าม,สำนักงาน,20,100,50\nสบู่เหลวล้างมือ,,ขวด,งานบ้าน,3,12,6\n';
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/csv;charset=utf-8'}));a.download='ตัวอย่างนำเข้าพัสดุ.csv';document.body.appendChild(a);a.click();a.remove()}
+/* ===== PWA: ติดตั้งลงหน้าจอหลัก + แจ้งเตือนอัพเดทออนไลน์ ===== */
+const APP_VER='1.3.0';
+let PW={dip:null,reg:null,upd:false,reload:false};
+const pwLS={g:k=>{try{return localStorage.getItem(k)}catch(e){return null}},s:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
+const pwStandalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+const pwIOS=()=>/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const pwHidden=()=>Date.now()-(+pwLS.g('ws_inst_hide')||0)<7*864e5;
+function pwUI(){
+ const b=document.getElementById('pwa');if(!b)return;
+ if(PW.upd){b.className='pw up';b.hidden=false;b.innerHTML='<span>🔄 มีเวอร์ชันใหม่พร้อมใช้งาน ข้อมูลของคุณจะไม่หาย</span><button class="btn" onclick="pwApply()">อัพเดทเลย</button>';return}
+ if(!pwStandalone()&&!pwHidden()&&(PW.dip||pwIOS())){b.className='pw';b.hidden=false;b.innerHTML='<span>📲 ติดตั้งแอปลงหน้าจอหลัก ใช้งานได้เหมือนแอปทั่วไป</span><button class="btn" onclick="pwInstall()">ติดตั้ง</button><button class="x" aria-label="ปิด" onclick="pwLater()">✕</button>';return}
+ b.hidden=true;b.innerHTML='';
+}
+function pwLater(){pwLS.s('ws_inst_hide',Date.now());pwUI()}
+async function pwInstall(){
+ if(PW.dip){PW.dip.prompt();try{await PW.dip.userChoice}catch(e){}PW.dip=null;pwUI();if(T==='manage')render();return}
+ if(pwIOS()){sheet('<h2>ติดตั้งบน iPhone / iPad</h2><p>1. เปิดหน้านี้ด้วย <b>Safari</b><br>2. แตะปุ่ม <b>แชร์</b> (สี่เหลี่ยมมีลูกศรขึ้น)<br>3. เลือก <b>เพิ่มลงหน้าจอโฮม</b><br>4. แตะ <b>เพิ่ม</b></p><button class="btn" style="width:100%" onclick="closeSh()">เข้าใจแล้ว</button>');return}
+ toast('เปิดเมนูเบราว์เซอร์ แล้วเลือก "ติดตั้งแอป" หรือ "เพิ่มไปยังหน้าจอหลัก"');
+}
+function pwApply(){
+ const w=PW.reg&&PW.reg.waiting;try{save()}catch(e){}
+ if(w)w.postMessage('SKIP_WAITING');else location.reload();
+}
+function pwNew(){PW.upd=true;pwUI();if(T==='manage')render()}
+function pwWatch(r){
+ const n=r.installing;if(!n)return;
+ n.addEventListener('statechange',()=>{if(n.state==='installed'&&navigator.serviceWorker.controller)pwNew()});
+}
+async function pwCheck(manual){
+ if(!PW.reg){if(manual)toast('เบราว์เซอร์นี้ไม่รองรับการอัพเดทอัตโนมัติ');return}
+ if(!navigator.onLine){if(manual)toast('ไม่มีอินเทอร์เน็ต ตรวจสอบไม่ได้');return}
+ if(manual)toast('กำลังตรวจสอบเวอร์ชันใหม่…');
+ try{await PW.reg.update()}catch(e){if(manual)toast('ตรวจสอบไม่สำเร็จ ลองใหม่อีกครั้ง');return}
+ if(PW.reg.waiting&&navigator.serviceWorker.controller){pwNew();return}
+ if(manual)toast(PW.reg.installing?'พบเวอร์ชันใหม่ กำลังดาวน์โหลด…':'เป็นเวอร์ชันล่าสุดแล้ว ✓')
+}
+function pwaCard(){
+ const inst=pwStandalone(),can=!inst&&(PW.dip||pwIOS());
+ return `<div class="card"><b>📲 แอปและการอัพเดท</b><div class="mu" style="margin:4px 0 10px">เวอร์ชัน ${APP_VER}${inst?' · ติดตั้งบนหน้าจอหลักแล้ว ✓':''}</div><div class="row">${can?'<button class="btn" style="flex:1" onclick="pwInstall()">ติดตั้งลงหน้าจอหลัก</button>':''}<button class="btn" style="flex:1" onclick="${PW.upd?'pwApply()':'pwCheck(true)'}">${PW.upd?'🔄 อัพเดทเลย':'ตรวจสอบอัพเดท'}</button></div></div>`
+}
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();PW.dip=e;pwUI();if(T==='manage')render()});
+addEventListener('appinstalled',()=>{PW.dip=null;toast('ติดตั้งแอปเรียบร้อยแล้ว ✓');pwUI();if(T==='manage')render()});
+if('serviceWorker' in navigator&&location.protocol.startsWith('http')){
+ const had=!!navigator.serviceWorker.controller;
+ navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!had||PW.reload)return;PW.reload=true;location.reload()});
+ addEventListener('load',()=>{
+  navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(r=>{
+   PW.reg=r;
+   if(r.waiting&&navigator.serviceWorker.controller)pwNew();
+   r.addEventListener('updatefound',()=>pwWatch(r));
+   setInterval(()=>pwCheck(false),30*60*1000);
+   document.addEventListener('visibilitychange',()=>{if(!document.hidden)pwCheck(false)});
+   addEventListener('online',()=>pwCheck(false));
+  }).catch(()=>{});
+ });
+}
+pwUI();
 </script>
 </body>
 </html>
